@@ -1,0 +1,11 @@
+@extends('layouts.main')
+@section('content')
+        @include('home.slides')
+        @include('home.banner-area')
+        @include('home.product-area')
+        @include('home.new-products-area')
+        @include('home.another-banner-area')
+        @include('home.testimonial-area')
+        @include('home.blog-area')
+        @include('home.newsleter-area')
+@endsection
