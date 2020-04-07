@@ -3703,8 +3703,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
   data: function data() {
@@ -9534,7 +9532,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.button-submit{\r\n                 width: 300px;\r\n                text-align: center;\r\n                margin: auto;\n}\n.type{\r\n        padding-bottom: 50px\n}\nlabel{\r\n        font-weight: bold\n}\n.sub-title{\r\n        font-weight: bold\n}\n.select{\r\n        background: oldlace\n}\n#color{\r\n    color:mediumblue\n}\r\n", ""]);
+exports.push([module.i, "\n.button-submit{\r\n                 width: 300px;\r\n                text-align: center;\r\n                margin: auto;\n}\n.type{\r\n        padding-bottom: 50px\n}\nlabel{\r\n        font-weight: bold\n}\n.sub-title{\r\n        font-weight: bold\n}\n.select{\r\n        background: oldlace\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -45764,8 +45762,12 @@ var render = function() {
                                   ) {
                                     return _c(
                                       "span",
-                                      { key: index, attrs: { id: "color" } },
-                                      [_vm._v(_vm._s(item) + " + ")]
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "badge badge-primary mr-1 mt-1"
+                                      },
+                                      [_vm._v(_vm._s(item) + " ")]
                                     )
                                   })
                                 ],
@@ -45850,8 +45852,12 @@ var render = function() {
                                   ) {
                                     return _c(
                                       "span",
-                                      { key: index, attrs: { id: "color" } },
-                                      [_vm._v(_vm._s(item) + " + ")]
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "badge badge-primary mr-1 mt-1"
+                                      },
+                                      [_vm._v(_vm._s(item) + " ")]
                                     )
                                   })
                                 ],

@@ -113,7 +113,7 @@
                                                                                 <div class="row">
                                                                                         <div class="col-md-6">
                                                                                                 <h4 class="sub-title">Màu sắc:
-                                                                                                    <span id="color" v-for="(item, index) in selectedColor" :key="index">{{item}} + </span>
+                                                                                                    <span  class="badge badge-primary mr-1 mt-1" v-for="(item, index) in selectedColor" :key="index">{{item}} </span>
                                                                                                 </h4>
                                                                                                 <div id="checkboxColor" class="border-checkbox-section">
                                                                                                         <div v-for="(color, index) in colors" :key="index" >
@@ -125,7 +125,7 @@
                                                                                 
                                                                                         <div class="col-md-6">
                                                                                                 <h4 class="sub-title">Size :
-                                                                                                     <span id="color" v-for="(item, index) in selectedSize" :key="index">{{item}} + </span>
+                                                                                                     <span class="badge badge-primary mr-1 mt-1" v-for="(item, index) in selectedSize" :key="index">{{item}} </span>
                                                                                                 </h4>
                                                                                                 <div id="checkboxSize">
                                                                                                         <div v-for="(size, index) in sizes" :key="index"  class="border-checkbox-group border-checkbox-group-primary">
@@ -198,9 +198,7 @@ label{
 .select{
         background: oldlace
 }
-#color{
-    color:mediumblue
-}
+
 </style>
 <script>
 export default {
