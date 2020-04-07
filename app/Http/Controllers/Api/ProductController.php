@@ -124,48 +124,64 @@ class ProductController extends Controller
     }
     public function update(Request $request, $id)
     {
-        // $sku='';
-        // if(empty($request->product["sku"])){
-        //     $sku=$this->getSKU();
-        // }
-        // else{
-        //     $sku=$request->product['sku'];
-        // }
-        // $product = Product::findOrFail($id);
-        // $product->update([
-        //     'sku'=>$sku,
-        //     'name'=>$request->product['name'],
-        //     'price'=>$request->product['price'],
-        //     'price_sale'=>$request->product['price_sale'],
-        //     'excerpt'=>$request->product['excerpt'],
-        //     'description'=>$request->product['description'],
-        //     'body'=>$request->product['body'],
-        //     'status'=>$request->product['status'],
-        //     ]);
+        $sku='';
+        $name='';
+        if(empty($request->product["sku"])){
+            $sku=$this->getSKU();
+        }
+        else{
+            $sku=$request->product['sku'];
+        }
 
-        //  update color product
-        // $pr_color = DB::table('products_colors')
-        //             ->where('product_id', $id);
-        // $pr_color->delete();
+        // get img 
+        if($request->get('image'))
+        {
+            $image = $request->get('image');
+            $name = time().'.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+            \Image::make($request->get('image'))->save(public_path('img/').$name);
+        }
+        
+        if(isset($name)){
+            $product = Product::findOrFail($id);
+            $product->update([
+                        'product_image'=>$name,
+                        'product_type_id'=>$request->selectedType,
+                        'sku'=>$sku,
+                        'name'=>$request->product['name'],
+                        'price'=>$request->product['price'],
+                        'price_sale'=>$request->product['price_sale'],
+                        'excerpt'=>$request->product['excerpt'],
+                        'description'=>$request->product['description'],
+                        'body'=>$request->product['body'],
+                        'status'=>$request->product['status'],
+                        ]);    
+        }
+ 
+       
+        $pr_color = DB::table('products_colors')
+                    ->where('product_id', $id);
+        $pr_color->delete();
 
-        //  $request_color=json_decode(json_encode($request->color, true));
-        //  foreach($request_color as $value)
-        //      {
-        //              $color= new ProductColor;
-        //              $data=array('product_id'=>$id,'color'=>$value);
-        //              $color->insert($data);
-        //     }
-       //  update size product
-    //    $request_size=json_decode(json_encode($request->size, true));
-    //    $pr_size= DB::table('products_sizes')
-    //                  ->where('product_id', $id);
-    //     $pr_size->delete();
-    //     foreach($request_size as $value)
-    //     {
-    //             $color= new ProductSize;
-    //             $data=array('product_id'=>$id,'size'=>$value);
-    //             $color->insert($data);
-    //     }
+         $request_color=json_decode(json_encode($request->color, true));
+         foreach($request_color as $value)
+             {
+                     $color= new ProductColor;
+                     $data=array('product_id'=>$id,'color'=>$value);
+                     $color->insert($data);
+            }
+     
+       $request_size=json_decode(json_encode($request->size, true));
+       $pr_size= DB::table('products_sizes')
+                     ->where('product_id', $id);
+        $pr_size->delete();
+        foreach($request_size as $value)
+        {
+                $color= new ProductSize;
+                $data=array('product_id'=>$id,'size'=>$value);
+                $color->insert($data);
+        }
+        // end 
+        return $product;
     }
     public function destroy($id)
     {

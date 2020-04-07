@@ -3703,6 +3703,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
   data: function data() {
@@ -3810,6 +3822,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var app = this;
       var newProduct = {
         product: app.product,
+        selectedType: app.selectedType,
         size: app.selectedSize,
         color: app.selectedColor,
         image: app.image
@@ -45731,11 +45744,28 @@ var render = function() {
                               : _vm._e(),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-md-6" }, [
-                              _c("input", {
-                                staticClass: "form-control",
-                                attrs: { type: "file" },
-                                on: { change: _vm.onImageChange }
-                              })
+                              _c("div", { staticClass: "card row" }, [
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("div", { staticClass: "mb-2" }, [
+                                    _c("div", [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "form-group mb-2 mr-sm-2 mb-sm-0"
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass: "form-control",
+                                            attrs: { type: "file" },
+                                            on: { change: _vm.onImageChange }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ])
                             ])
                           ])
                         ])
@@ -45937,10 +45967,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "row type" }, [
-                            _c("label", [
-                              _vm._v("Hãng sản xuất : "),
-                              _c("span", [_vm._v(_vm._s(_vm.selectedType))])
-                            ]),
+                            _c("label", [_vm._v("Hãng sản xuất : ")]),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -45972,9 +45999,14 @@ var render = function() {
                                 }
                               },
                               _vm._l(_vm.listType, function(item) {
-                                return _c("option", { key: item.id }, [
-                                  _vm._v(_vm._s(item.name))
-                                ])
+                                return _c(
+                                  "option",
+                                  {
+                                    key: item.id,
+                                    domProps: { value: item.id }
+                                  },
+                                  [_vm._v(_vm._s(item.name))]
+                                )
                               }),
                               0
                             )

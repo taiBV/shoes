@@ -93,13 +93,25 @@
                                                                                         </div>
                                                                                 </div>
                                                                         </div>
-                                                                        <div class="row">
+                                                                                <div class="row">
                                                                                  <label class="col-sm-4 col-lg-2 col-form-label">Hình ảnh</label>
                                                                                 <div class="col-md-3" v-if="image">
                                                                                         <img :src="image" class="img-responsive" height="70" width="90">
                                                                                 </div>
                                                                                 <div class="col-md-6">
-                                                                                        <input type="file" v-on:change="onImageChange" class="form-control">
+                                                                                        <div class="card row">
+                                                                                        <div class="card-body">
+                                                                                                        
+                                                                                                                <div class="mb-2">
+                                                                                                                        <div>
+                                                                                                                                <div class="form-group mb-2 mr-sm-2 mb-sm-0">
+                                                                                                                                        <input type="file" v-on:change="onImageChange" class="form-control">
+                                                                                                                                </div>
+                                                                                                                        </div>
+                                                                                                                </div>
+                                                                                                 
+                                                                                        </div>
+                                                                                </div>
                                                                                 </div>
                                                                           </div>
                                                                 </div>
@@ -137,9 +149,9 @@
                                                                                         
                                                                                 </div>
                                                                                 <div class="row type">
-                                                                                        <label>Hãng sản xuất : <span>{{ selectedType }}</span></label>
+                                                                                        <label>Hãng sản xuất : </label>
                                                                                         <select v-model="selectedType" class="select form-control select2">
-                                                                                                 <option   v-for="item in listType" :key="item.id">{{ item.name }}</option>
+                                                                                                 <option   v-for="item in listType" :value="item.id" :key="item.id">{{ item.name }}</option>
                                                                                         </select>
                                                                                 </div>
 
@@ -205,7 +217,7 @@ export default {
     name:'',
     data() {
         return {
-         product_id : this.$route.params.id,
+             product_id : this.$route.params.id,
              product:{
                         type:'',
                         sku:'',
@@ -289,6 +301,7 @@ export default {
                 var app =this;
                 var newProduct ={
                         product:app.product,
+                        selectedType:app.selectedType,
                         size:app.selectedSize,
                         color:app.selectedColor,
                         image:app.image
