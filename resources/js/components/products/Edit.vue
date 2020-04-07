@@ -61,11 +61,11 @@
                                                                                 <div class="col-sm-8 col-lg-10">
                                                                                         <div class="input-group">
                                                                                                 <span class="input-group-prepend">
-                                                                                                        <label class="input-group-text">$</label>
+                                                                                                        <label class="input-group-text">đ</label>
                                                                                                 </span>
                                                                                                 <input v-model="product.price" type="text" class="form-control" placeholder="VND">
                                                                                                 <span class="input-group-append">
-                                                                                                        <label class="input-group-text">.20</label>
+                                                                                                        <label class="input-group-text">đồng</label>
                                                                                                 </span>
                                                                                         </div>
                                                                                 </div>
@@ -74,10 +74,13 @@
                                                                                 <label class="col-sm-4 col-lg-2 col-form-label">Khuyến mại</label>
                                                                                 <div class="col-sm-8 col-lg-10">
                                                                                         <div class="input-group">
-                                                                                                <span class="input-group-prepend" id="basic-addon2">
-                                                                                                        <label class="input-group-text">%</label>
+                                                                                               <span class="input-group-prepend">
+                                                                                                        <label class="input-group-text">đ</label>
                                                                                                 </span>
-                                                                                                <input v-model="product.sale" type="text" class="form-control">
+                                                                                                <input v-model="product.price_sale" type="text" class="form-control" placeholder="VND">
+                                                                                                <span class="input-group-append">
+                                                                                                        <label class="input-group-text">đồng</label>
+                                                                                                </span>
                                                                                         </div>
                                                                                 </div>
                                                                         </div>
@@ -204,12 +207,13 @@ export default {
     name:'',
     data() {
         return {
+         product_id : this.$route.params.id,
              product:{
                         type:'',
                         sku:'',
                         name:'',
                         price:'',
-                        sale:'',
+                        price_sale:'',
                         excerpt:'',
                         description:'',
                         body:'',
@@ -291,10 +295,9 @@ export default {
                         color:app.selectedColor,
                         image:app.image
                 } ;
-                console.log('NEw product',newProduct)
-                axios.post('/api/v1/product',newProduct)
+                console.log('NEw product Edit',newProduct)
+                axios.patch('/api/v1/product/'+this.product_id,newProduct)
                         .then((response)=>{
-                              
                               this.$notify({
                                        group: 'success',
                                         title: 'Thành công',

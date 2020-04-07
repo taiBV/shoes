@@ -3702,16 +3702,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
   data: function data() {
     return {
+      product_id: this.$route.params.id,
       product: {
         type: '',
         sku: '',
         name: '',
         price: '',
-        sale: '',
+        price_sale: '',
         excerpt: '',
         description: '',
         body: ''
@@ -3812,8 +3816,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         color: app.selectedColor,
         image: app.image
       };
-      console.log('NEw product', newProduct);
-      axios.post('/api/v1/product', newProduct).then(function (response) {
+      console.log('NEw product Edit', newProduct);
+      axios.patch('/api/v1/product/' + this.product_id, newProduct).then(function (response) {
         _this3.$notify({
           group: 'success',
           title: 'Thành công',
@@ -45637,13 +45641,13 @@ var render = function() {
                                     {
                                       name: "model",
                                       rawName: "v-model",
-                                      value: _vm.product.sale,
-                                      expression: "product.sale"
+                                      value: _vm.product.price_sale,
+                                      expression: "product.price_sale"
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.product.sale },
+                                  attrs: { type: "text", placeholder: "VND" },
+                                  domProps: { value: _vm.product.price_sale },
                                   on: {
                                     input: function($event) {
                                       if ($event.target.composing) {
@@ -45651,12 +45655,14 @@ var render = function() {
                                       }
                                       _vm.$set(
                                         _vm.product,
-                                        "sale",
+                                        "price_sale",
                                         $event.target.value
                                       )
                                     }
                                   }
-                                })
+                                }),
+                                _vm._v(" "),
+                                _vm._m(6)
                               ])
                             ])
                           ]),
@@ -46054,7 +46060,7 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
-                          _vm._m(6)
+                          _vm._m(7)
                         ])
                       ])
                     ])
@@ -46154,7 +46160,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "input-group-prepend" }, [
-      _c("label", { staticClass: "input-group-text" }, [_vm._v("$")])
+      _c("label", { staticClass: "input-group-text" }, [_vm._v("đ")])
     ])
   },
   function() {
@@ -46162,18 +46168,24 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "input-group-append" }, [
-      _c("label", { staticClass: "input-group-text" }, [_vm._v(".20")])
+      _c("label", { staticClass: "input-group-text" }, [_vm._v("đồng")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { staticClass: "input-group-prepend", attrs: { id: "basic-addon2" } },
-      [_c("label", { staticClass: "input-group-text" }, [_vm._v("%")])]
-    )
+    return _c("span", { staticClass: "input-group-prepend" }, [
+      _c("label", { staticClass: "input-group-text" }, [_vm._v("đ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-append" }, [
+      _c("label", { staticClass: "input-group-text" }, [_vm._v("đồng")])
+    ])
   },
   function() {
     var _vm = this

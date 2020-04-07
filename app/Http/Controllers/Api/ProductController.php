@@ -11,11 +11,15 @@ use Carbon\Carbon;
 use DB;
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //  ================================function  getSKU===========================
+    public function getSKU(){
+        $dt=Carbon::now('Asia/Ho_Chi_Minh');
+        $char_rep=[":"," ","-"];
+        $process_sku=str_replace($char_rep,"",$dt);
+        $sku='TJ'.$process_sku;
+        return $sku;
+    }
+    // ===================================
     public function index()
     {
         $list = DB::table('products')->orderBy('created_at','DESC')->get();
@@ -142,9 +146,24 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $sku='';
+        if(empty($request->product["sku"])){
+            $sku=$this->getSKU();
+        }
+        else{
+            $sku=$request->product['sku'];
+        }
         $product = Product::findOrFail($id);
-        $product->update($request->all());
-
+        $product->update([
+            'sku'=>$sku,
+            'name'=>$request->product['name'],
+            'price'=>$request->product['price'],
+            'price_sale'=>$request->product['price_sale'],
+            'excerpt'=>$request->product['excerpt'],
+            'description'=>$request->product['description'],
+            'body'=>$request->product['body'],
+            'status'=>$request->product['status'],
+            ]);
         return $product;
     }
 
