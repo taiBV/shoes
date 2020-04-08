@@ -10,8 +10,15 @@
                                 <div class="card table-card">
                                     <div class="card-header">
                                         <h3>Danh Sách Sản Phẩm</h3>
-                                        <div style="padding-left:700px" class="float-right">
-                                           <router-link to="/product/create" tag="button" class="btn btn-primary"> Thêm mới </router-link>
+                                        <div style="padding-left:500px" class="float-right">
+                                            <div class="input-group mb-3" style="width:400px">
+                                                 <input type="text" class="form-control" placeholder="Tìm kiếm ...">
+                                                <div class="input-group-prepend">
+                                                     <router-link to="/product/create" tag="button" class="btn btn-primary"> Thêm mới </router-link>
+                                                </div>
+                                               
+                                                </div>
+                                          
                                         </div>
                                     </div>
                                     <div class="card-block">

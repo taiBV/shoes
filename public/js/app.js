@@ -3952,6 +3952,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
@@ -46206,19 +46213,39 @@ var render = function() {
                   "div",
                   {
                     staticClass: "float-right",
-                    staticStyle: { "padding-left": "700px" }
+                    staticStyle: { "padding-left": "500px" }
                   },
                   [
                     _c(
-                      "router-link",
+                      "div",
                       {
-                        staticClass: "btn btn-primary",
-                        attrs: { to: "/product/create", tag: "button" }
+                        staticClass: "input-group mb-3",
+                        staticStyle: { width: "400px" }
                       },
-                      [_vm._v(" Thêm mới ")]
+                      [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Tìm kiếm ..." }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "input-group-prepend" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { to: "/product/create", tag: "button" }
+                              },
+                              [_vm._v(" Thêm mới ")]
+                            )
+                          ],
+                          1
+                        )
+                      ]
                     )
-                  ],
-                  1
+                  ]
                 )
               ]),
               _vm._v(" "),
