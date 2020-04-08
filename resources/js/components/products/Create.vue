@@ -16,7 +16,7 @@
                                             <nav class="breadcrumb-container" aria-label="breadcrumb">
                                                     <ol class="breadcrumb">
                                                             <li class="breadcrumb-item">
-                                                                    <a href="../index.html"><i class="ik ik-home"></i></a>
+                                                                    <a href="#"><i class="ik ik-home"></i></a>
                                                             </li>
                                                             <li class="breadcrumb-item"><a href="#">Forms</a></li>
                                                             <li class="breadcrumb-item active" aria-current="page">Group Add-Ons</li>
@@ -93,21 +93,22 @@
                                                                         <div class="row">
                                                                                  <label class="col-sm-4 col-lg-2 col-form-label">Hình ảnh</label>
                                                                                 <div class="col-md-3" v-if="image">
-                                                                                        <img :src="image" class="img-responsive" height="70" width="90">
+                                                                                        <img :src="image" class="img-responsive" height="80" width="90">
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                         <div class="card row">
                                                                                         <div class="card-body">
-                                                                                                        <div class="col-10" v-for="(item, index) in countUpload" :key="index">
-                                                                                                                <div class="mb-2">
-                                                                                                                        <div>
-                                                                                                                                <div class="form-group mb-2 mr-sm-2 mb-sm-0">
-                                                                                                                                        <input type="file" v-on:change="onImageChange" class="form-control">
+                                                                                                <div class="mb-2">
+                                                                                                        <div>
+                                                                                                                <div class="form-group mb-2 mr-sm-2 mb-sm-0">
+                                                                                                                        <div class="upload-btn-wrapper">
+                                                                                                                                <button class="btnimg">Ảnh sản phẩm</button>
+                                                                                                                                <input id="uploadimg" v-on:change="onImageChange" type="file" name="myfile" />
                                                                                                                                 </div>
-                                                                                                                        </div>
+                                                                                                                      
                                                                                                                 </div>
                                                                                                         </div>
-                                                                                                     <button type="button" @click="clickAddImage()" class="btn btn-success btn-icon ml-2 mb-2 col-2"><i class="ik ik-plus"></i></button>
+                                                                                                </div>
                                                                                         </div>
                                                                                 </div>
                                                                                 </div>
@@ -165,11 +166,6 @@
                                                                                                 </div>
                                                                                         </div>
                                                                                 </div>
-
-                                                                                <div class="row">
-                                                                                        <h4 class="sub-title">Trạng thái</h4>
-                                                                                        <input type="checkbox" class="js-single" checked />
-                                                                                </div>
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -183,7 +179,30 @@
                     </div>
          </div>
 </template>
-<style>
+<style scoped>
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btnimg {
+ border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper #uploadimg {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
 .checkbox{
         width: 15px;
         height: 15px;
@@ -240,19 +259,6 @@ export default {
     computed: {
     },
     methods: {
-            clickAddImage(){
-                          this.countUpload += 1;
-                          if(this.countUpload>5){
-                                  this.$notify({
-                                       group: 'success',
-                                        title: 'Chỉ được thêm tối đa 5 ảnh',
-                                        type: 'danger',
-                                        speed: 1000,
-                                         duration: 500,
-                                }) 
-                                 this.countUpload=5
-                          } 
-            },
            onImageChange(e) {
                 let files = e.target.files || e.dataTransfer.files;
                 if (!files.length)

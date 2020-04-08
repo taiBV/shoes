@@ -12,17 +12,6 @@
                                                     </div>
                                             </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                            <nav class="breadcrumb-container" aria-label="breadcrumb">
-                                                    <ol class="breadcrumb">
-                                                            <li class="breadcrumb-item">
-                                                                    <a href="../index.html"><i class="ik ik-home"></i></a>
-                                                            </li>
-                                                            <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                                                            <li class="breadcrumb-item active" aria-current="page">Group Add-Ons</li>
-                                                    </ol>
-                                            </nav>
-                                    </div>
                             </div>
                     </div>
 
@@ -101,15 +90,10 @@
                                                                                 <div class="col-md-6">
                                                                                         <div class="card row">
                                                                                         <div class="card-body">
-                                                                                                        
-                                                                                                                <div class="mb-2">
-                                                                                                                        <div>
-                                                                                                                                <div class="form-group mb-2 mr-sm-2 mb-sm-0">
-                                                                                                                                        <input type="file" v-on:change="onImageChange" class="form-control">
-                                                                                                                                </div>
-                                                                                                                        </div>
-                                                                                                                </div>
-                                                                                                 
+                                                                                              <div class="upload-btn-wrapper">
+                                                                                                        <button class="btnimg">Ảnh sản phẩm</button>
+                                                                                                        <input id="uploadimg" v-on:change="onImageChange" type="file" name="myfile" />
+                                                                                              </div>
                                                                                         </div>
                                                                                 </div>
                                                                                 </div>
@@ -172,10 +156,7 @@
                                                                                         </div>
                                                                                 </div>
 
-                                                                                <div class="row">
-                                                                                        <h4 class="sub-title">Trạng thái</h4>
-                                                                                        <input type="checkbox" class="js-single" checked />
-                                                                                </div>
+                                                                               
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -192,12 +173,35 @@
                  
          </div>
 </template>
-<style>
-.button-submit{
-                 width: 300px;
-                text-align: center;
-                margin: auto;
+<style scoped>
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
 }
+
+.btnimg {
+ border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper #uploadimg {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.button-submit{
+        width: 300px;
+        text-align: center;
+        margin: auto;
+        }
 .type{
         padding-bottom: 50px
 }
@@ -333,6 +337,7 @@ export default {
          getCkeditor(){
             CKEDITOR.replace('body-create');
         },
+       
     },
 }
 </script>
