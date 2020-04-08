@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between">
                 <div class="top-menu d-flex align-items-center">
                     <button type="button" class="btn-icon mobile-nav-toggle"><span></span></button>
-                    <div class="header-search d-flex">
+                    <div class="header-search d-none">
                         <div class="input-group">
                             <input  @keyup.enter="clickSearch" v-model="key" type="text" class="form-control" placeholder="Tìm sản phẩm ....">
                             <span @click="closeBtnClose" class="input-group-addon search-btn"><i class="ik ik-search"></i></span>

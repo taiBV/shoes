@@ -3959,12 +3959,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
   data: function data() {
     return {
-      listProduct: []
+      listProduct: [],
+      strSearch: ''
     };
   },
   mounted: function mounted() {},
@@ -3974,7 +3978,22 @@ __webpack_require__.r(__webpack_exports__);
 
     this.$store.dispatch('product/getListProduct', _this);
   },
+  computed: {
+    listProductSearch: function listProductSearch() {
+      var newListProduct = [];
+      var strSearch = this.strSearch;
+      this.listProduct.forEach(function (item) {
+        if (item.name.toLowerCase().includes(strSearch.toLowerCase())) {
+          newListProduct.push(item);
+        }
+      });
+      return newListProduct;
+    }
+  },
   methods: {
+    handleSearch: function handleSearch(e) {
+      console.log(e.target.value);
+    },
     handleEdit: function handleEdit(id, item) {
       this.$router.push('/product/edit/' + id);
     },
@@ -3985,7 +4004,7 @@ __webpack_require__.r(__webpack_exports__);
         _this: this,
         id: id,
         index: index
-      }; // this.$store.dispatch('product/handleDelete',data);
+      };
 
       if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này ? ")) {
         axios["delete"]('/api/v1/product/' + data.id).then(function (response) {
@@ -44004,7 +44023,7 @@ var render = function() {
           _c("div", { staticClass: "top-menu d-flex align-items-center" }, [
             _vm._m(0),
             _vm._v(" "),
-            _c("div", { staticClass: "header-search d-flex" }, [
+            _c("div", { staticClass: "header-search d-none" }, [
               _c("div", { staticClass: "input-group" }, [
                 _c("input", {
                   directives: [
@@ -46224,8 +46243,25 @@ var render = function() {
                       },
                       [
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.strSearch,
+                              expression: "strSearch"
+                            }
+                          ],
                           staticClass: "form-control",
-                          attrs: { type: "text", placeholder: "Tìm kiếm ..." }
+                          attrs: { type: "text", placeholder: "Tìm kiếm ..." },
+                          domProps: { value: _vm.strSearch },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.strSearch = $event.target.value
+                            }
+                          }
                         }),
                         _vm._v(" "),
                         _c(
@@ -46254,80 +46290,94 @@ var render = function() {
                   _c("table", { staticClass: "table table-hover mb-0" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.listProduct, function(item, index) {
-                        return _c("tr", { key: item.id }, [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "div",
-                              { staticClass: "d-inline-block align-middle" },
-                              [
-                                _c("img", {
-                                  staticClass:
-                                    "rounded-circle img-40 align-top mr-15",
-                                  attrs: {
-                                    src: "/img/" + item.product_image,
-                                    alt: "user image"
-                                  }
-                                }),
+                    _vm.listProductSearch.length != 0
+                      ? _c(
+                          "tbody",
+                          _vm._l(_vm.listProductSearch, function(item, index) {
+                            return _c("tr", { key: item.id }, [
+                              _c("td", [_vm._v(_vm._s(index + 1))]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "d-inline-block align-middle"
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass:
+                                        "rounded-circle img-40 align-top mr-15",
+                                      attrs: {
+                                        src: "/img/" + item.product_image,
+                                        alt: "user image"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "d-inline-block" },
+                                      [
+                                        _c(
+                                          "h6",
+                                          { staticClass: "text-capitalize" },
+                                          [_vm._v(_vm._s(item.name))]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(item.sku))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(item.price))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(item.created_at))]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-danger",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.clickDelete(item.id, index)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", { staticClass: "ik ik-info" }),
+                                    _vm._v("Xóa")
+                                  ]
+                                ),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "d-inline-block" }, [
-                                  _c("h6", { staticClass: "text-capitalize" }, [
-                                    _vm._v(_vm._s(item.name))
-                                  ])
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(item.sku))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(item.price))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(item.created_at))]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-danger",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.clickDelete(item.id, index)
-                                  }
-                                }
-                              },
-                              [
-                                _c("i", { staticClass: "ik ik-info" }),
-                                _vm._v("Xóa")
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-dark",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.handleEdit(item.id, index)
-                                  }
-                                }
-                              },
-                              [
-                                _c("i", { staticClass: "ik ik-edit-2" }),
-                                _vm._v("Sửa")
-                              ]
-                            )
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-dark",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.handleEdit(item.id, index)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", { staticClass: "ik ik-edit-2" }),
+                                    _vm._v("Sửa")
+                                  ]
+                                )
+                              ])
+                            ])
+                          }),
+                          0
+                        )
+                      : _c("tbody", [
+                          _c("h5", { staticClass: "mt-4 ml-4" }, [
+                            _vm._v(" Không tìm thấy sản phẩm phù hợp ")
                           ])
                         ])
-                      }),
-                      0
-                    )
                   ])
                 ])
               ])

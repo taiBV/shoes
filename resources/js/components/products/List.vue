@@ -12,7 +12,7 @@
                                         <h3>Danh Sách Sản Phẩm</h3>
                                         <div style="padding-left:500px" class="float-right">
                                             <div class="input-group mb-3" style="width:400px">
-                                                 <input type="text" class="form-control" placeholder="Tìm kiếm ...">
+                                                 <input v-model="strSearch" type="text" class="form-control" placeholder="Tìm kiếm ...">
                                                 <div class="input-group-prepend">
                                                      <router-link to="/product/create" tag="button" class="btn btn-primary"> Thêm mới </router-link>
                                                 </div>
@@ -35,8 +35,8 @@
 
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr v-for="(item,index) in listProduct" :key="item.id">
+                                                <tbody v-if="listProductSearch.length!=0">
+                                                    <tr v-for="(item,index) in listProductSearch" :key="item.id">
                                                         <td>{{index+1}}</td>
                                                         <td>
                                                             <div class="d-inline-block align-middle">
@@ -55,6 +55,9 @@
                                                         </td>
 
                                                     </tr>
+                                                </tbody>
+                                                <tbody v-else>
+                                                   <h5 class="mt-4 ml-4"> Không tìm thấy sản phẩm phù hợp </h5>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -87,6 +90,7 @@ export default {
     data() {
         return {
             listProduct:[],
+            strSearch:'',
         }
     },
     mounted(){
@@ -97,7 +101,24 @@ export default {
          var _this= this
          this.$store.dispatch('product/getListProduct',_this);
     },
+    computed: {
+        listProductSearch(){
+            var newListProduct=[];
+            const {strSearch}=this;
+            this.listProduct.forEach(item=>{
+                if(item.name.toLowerCase().includes(strSearch.toLowerCase())){
+                    newListProduct.push(item);
+                }  
+            });
+          
+            return newListProduct;
+        }
+    },
     methods: {
+        handleSearch(e){
+            console.log(e.target.value);
+            
+        },
         handleEdit(id,item){
           this.$router.push('/product/edit/'+id)
         },
@@ -107,8 +128,6 @@ export default {
                 id:id,
                 index:index
             };
-            // this.$store.dispatch('product/handleDelete',data);
-
             if(confirm("Bạn có chắc chắn muốn xóa sản phẩm này ? ")){
                 axios.delete('/api/v1/product/' + data.id)
                 .then(response=> {
