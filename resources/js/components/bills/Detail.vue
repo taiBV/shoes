@@ -8,7 +8,7 @@
             <a href="javascript:;" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-file t-plus-1 text-danger fa-fw fa-lg"></i> Export as PDF</a>
 
             </span>
-               Đơn hàng <span class="text-danger">{{ bill.sku }}</span>
+               Đơn hàng : <span style="padding-right:400px" class="text-danger"> {{ bill.sku }}</span>
              Trạng thái :
              <span>
                  <label class="switch">
@@ -124,10 +124,10 @@ body{
 }
 .knob{
     position: absolute;
-    top: 0;
+    top: 23px;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: -23px;
     background-color: #ccc;
     border-radius: 40px;
 }

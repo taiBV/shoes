@@ -3391,16 +3391,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
   data: function data() {
@@ -9447,7 +9437,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nbody{\n    margin-top:20px;\n    background:#eee;\n}\n.switch {\n    position: relative;\n    display: inline-block;\n    width: 70px;\n    height: 37px;\n}\n.switch input[type=\"checkbox\"]{\n    display:none;\n}\n.switch input:checked + .knob {\n    -webkit-animation: colorChange 0.4s linear forwards;\n            animation: colorChange 0.4s linear forwards;\n}\n.switch input:checked + .knob:before {\n    -webkit-animation: turnON 0.4s linear forwards;\n            animation: turnON 0.4s linear forwards;\n}\n@-webkit-keyframes colorChange {\nfrom { background-color: #ccc;}\n50%{ background-color: #A4D9AD;}\nto {background-color: #4BD663;}\n}\n@keyframes colorChange {\nfrom { background-color: #ccc;}\n50%{ background-color: #A4D9AD;}\nto {background-color: #4BD663;}\n}\n@-webkit-keyframes turnON {\nfrom { transform: translateX(0px);\n}\nto {  transform: translateX(35px );  box-shadow: -10px 0px 44px 0px #434343;}\n}\n@keyframes turnON {\nfrom { transform: translateX(0px);\n}\nto {  transform: translateX(35px );  box-shadow: -10px 0px 44px 0px #434343;}\n}\n.knob{\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ccc;\n    border-radius: 40px;\n}\n.knob:before {\n    position: absolute;\n    background-color: white;\n    content: \"\";\n    left: 4%;\n    top: 11%;\n    width: 40%;\n    height: 75%;\n    border-radius: 50%;\n}\n.invoice {\n    background: #fff;\n    padding: 20px\n}\n.invoice-company {\n    font-size: 20px\n}\n.text-invoice{\n    font-size: 16px\n}\n.invoice-header {\n    margin: 0 -20px;\n    background: #f0f3f4;\n    padding: 20px\n}\n.invoice-date,\n.invoice-from,\n.invoice-to {\n    display: table-cell;\n    width: 1%\n}\n.invoice-from,\n.invoice-to {\n    padding-right: 20px\n}\n.invoice-date .date,\n.invoice-from strong,\n.invoice-to strong {\n    font-size: 20px;\n    font-weight: 600\n}\n.invoice-date {\n    text-align: right;\n    padding-left: 20px\n}\n.invoice-price {\n    background: #f0f3f4;\n    display: table;\n    width: 100%\n}\n.invoice-price .invoice-price-left,\n.invoice-price .invoice-price-right {\n    display: table-cell;\n    padding: 20px;\n    font-size: 20px;\n    font-weight: 600;\n    width: 75%;\n    position: relative;\n    vertical-align: middle\n}\n.invoice-price .invoice-price-left .sub-price {\n    display: table-cell;\n    vertical-align: middle;\n    padding: 0 20px\n}\n.invoice-price small {\n    font-size: 12px;\n    font-weight: 400;\n    display: block\n}\n.invoice-price .invoice-price-row {\n    display: table;\n    float: left\n}\n.invoice-price .invoice-price-right {\n    width: 25%;\n    background: #2d353c;\n    color: #fff;\n    font-size: 28px;\n    text-align: right;\n    vertical-align: bottom;\n    font-weight: 300\n}\n.invoice-price .invoice-price-right small {\n    display: block;\n    opacity: .6;\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    font-size: 12px\n}\n.invoice-footer {\n    border-top: 1px solid #ddd;\n    padding-top: 10px;\n    font-size: 10px\n}\n.invoice-note {\n    color: #999;\n    margin-top: 80px;\n    font-size: 85%\n}\n.invoice>div:not(.invoice-footer) {\n    margin-bottom: 20px\n}\n.btn.btn-white, .btn.btn-white.disabled, .btn.btn-white.disabled:focus, .btn.btn-white.disabled:hover, .btn.btn-white[disabled], .btn.btn-white[disabled]:focus, .btn.btn-white[disabled]:hover {\n    color: #2d353c;\n    background: #fff;\n    border-color: #d9dfe3;\n}\n", ""]);
+exports.push([module.i, "\nbody{\n    margin-top:20px;\n    background:#eee;\n}\n.switch {\n    position: relative;\n    display: inline-block;\n    width: 70px;\n    height: 37px;\n}\n.switch input[type=\"checkbox\"]{\n    display:none;\n}\n.switch input:checked + .knob {\n    -webkit-animation: colorChange 0.4s linear forwards;\n            animation: colorChange 0.4s linear forwards;\n}\n.switch input:checked + .knob:before {\n    -webkit-animation: turnON 0.4s linear forwards;\n            animation: turnON 0.4s linear forwards;\n}\n@-webkit-keyframes colorChange {\nfrom { background-color: #ccc;}\n50%{ background-color: #A4D9AD;}\nto {background-color: #4BD663;}\n}\n@keyframes colorChange {\nfrom { background-color: #ccc;}\n50%{ background-color: #A4D9AD;}\nto {background-color: #4BD663;}\n}\n@-webkit-keyframes turnON {\nfrom { transform: translateX(0px);\n}\nto {  transform: translateX(35px );  box-shadow: -10px 0px 44px 0px #434343;}\n}\n@keyframes turnON {\nfrom { transform: translateX(0px);\n}\nto {  transform: translateX(35px );  box-shadow: -10px 0px 44px 0px #434343;}\n}\n.knob{\n    position: absolute;\n    top: 23px;\n    left: 0;\n    right: 0;\n    bottom: -23px;\n    background-color: #ccc;\n    border-radius: 40px;\n}\n.knob:before {\n    position: absolute;\n    background-color: white;\n    content: \"\";\n    left: 4%;\n    top: 11%;\n    width: 40%;\n    height: 75%;\n    border-radius: 50%;\n}\n.invoice {\n    background: #fff;\n    padding: 20px\n}\n.invoice-company {\n    font-size: 20px\n}\n.text-invoice{\n    font-size: 16px\n}\n.invoice-header {\n    margin: 0 -20px;\n    background: #f0f3f4;\n    padding: 20px\n}\n.invoice-date,\n.invoice-from,\n.invoice-to {\n    display: table-cell;\n    width: 1%\n}\n.invoice-from,\n.invoice-to {\n    padding-right: 20px\n}\n.invoice-date .date,\n.invoice-from strong,\n.invoice-to strong {\n    font-size: 20px;\n    font-weight: 600\n}\n.invoice-date {\n    text-align: right;\n    padding-left: 20px\n}\n.invoice-price {\n    background: #f0f3f4;\n    display: table;\n    width: 100%\n}\n.invoice-price .invoice-price-left,\n.invoice-price .invoice-price-right {\n    display: table-cell;\n    padding: 20px;\n    font-size: 20px;\n    font-weight: 600;\n    width: 75%;\n    position: relative;\n    vertical-align: middle\n}\n.invoice-price .invoice-price-left .sub-price {\n    display: table-cell;\n    vertical-align: middle;\n    padding: 0 20px\n}\n.invoice-price small {\n    font-size: 12px;\n    font-weight: 400;\n    display: block\n}\n.invoice-price .invoice-price-row {\n    display: table;\n    float: left\n}\n.invoice-price .invoice-price-right {\n    width: 25%;\n    background: #2d353c;\n    color: #fff;\n    font-size: 28px;\n    text-align: right;\n    vertical-align: bottom;\n    font-weight: 300\n}\n.invoice-price .invoice-price-right small {\n    display: block;\n    opacity: .6;\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    font-size: 12px\n}\n.invoice-footer {\n    border-top: 1px solid #ddd;\n    padding-top: 10px;\n    font-size: 10px\n}\n.invoice-note {\n    color: #999;\n    margin-top: 80px;\n    font-size: 85%\n}\n.invoice>div:not(.invoice-footer) {\n    margin-bottom: 20px\n}\n.btn.btn-white, .btn.btn-white.disabled, .btn.btn-white.disabled:focus, .btn.btn-white.disabled:hover, .btn.btn-white[disabled], .btn.btn-white[disabled]:focus, .btn.btn-white[disabled]:hover {\n    color: #2d353c;\n    background: #fff;\n    border-color: #d9dfe3;\n}\n", ""]);
 
 // exports
 
@@ -43094,9 +43084,14 @@ var render = function() {
           _c("div", { staticClass: "invoice-company text-inverse f-w-600" }, [
             _vm._m(0),
             _vm._v("\n               Đơn hàng "),
-            _c("span", { staticClass: "text-danger" }, [
-              _vm._v(_vm._s(_vm.bill.sku))
-            ]),
+            _c(
+              "span",
+              {
+                staticClass: "text-danger",
+                staticStyle: { "padding-right": "400px" }
+              },
+              [_vm._v(_vm._s(_vm.bill.sku))]
+            ),
             _vm._v("\n             Trạng thái :\n             "),
             _c("span", [
               _c("label", { staticClass: "switch" }, [
@@ -45380,38 +45375,6 @@ var staticRenderFns = [
               _c("h5", [_vm._v("Thêm Mới")])
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4" }, [
-          _c(
-            "nav",
-            {
-              staticClass: "breadcrumb-container",
-              attrs: { "aria-label": "breadcrumb" }
-            },
-            [
-              _c("ol", { staticClass: "breadcrumb" }, [
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "ik ik-home" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Forms")])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass: "breadcrumb-item active",
-                    attrs: { "aria-current": "page" }
-                  },
-                  [_vm._v("Group Add-Ons")]
-                )
-              ])
-            ]
-          )
         ])
       ])
     ])
