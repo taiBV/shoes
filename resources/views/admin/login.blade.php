@@ -19,9 +19,9 @@
         border-radius: 45px;
     }
     .img-logo{
-        margin-top: 50px;
-          margin-left: 46px;
-          width:20%
+        margin-top: 3px;
+    margin-left: 22px;
+    width: 30%;
     }
     img{
         width: 100%;
@@ -43,14 +43,15 @@
             <div class="d-flex">
 
                 <div class="img-logo">
-                    <img src="/images/vue.png" alt="">
+                    <img src="/img/vue.png" alt="">
                 </div>
                 <div class="divider"></div>
                 <div class="w-50 m-auto">
-                    <form method="post" action="dang-nhap">
+                    <form method="post" action="/postLogin">
+                    @csrf
                         <div class="form-group">
-                          <label class="font-weight-bold" for="exampleInputEmail1">Email</label>
-                          <input id="email" name="email" type="email" class="form-control" placeholder="Enter email">
+                          <label class="font-weight-bold">Email</label>
+                          <input id="email" name="email"  class="form-control" placeholder="Enter email">
                           <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
@@ -58,26 +59,12 @@
                           <input id="psw" name="psw" type="password" class="form-control">
                         </div>
                         <button id="login" type="submit" class="btn btn-primary">Submit</button>
-                      </form>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        // $(document).ready(()=>{
-        //     $("#login").click(()=>{
-        //         var data={
-        //                     email:$("#email").val(),
-        //                     psw:$("#psw").val(),
-        //                     "_token": $('#token').val()
-        //                 }; 
-        //         $.ajax({
-        //                 method: "POST",
-        //                 url: "/dang-nhap",
-        //                  data: data
-        //                 })
-        //     })
-        // })
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="/js/admin/plugins/popper.js/dist/umd/popper.min.js"></script>

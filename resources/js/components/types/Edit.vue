@@ -12,36 +12,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <nav
-                            class="breadcrumb-container"
-                            aria-label="breadcrumb"
-                        >
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="../index.html"
-                                        ><i class="ik ik-home"></i
-                                    ></a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#">Forms</a>
-                                </li>
-                                <li
-                                    class="breadcrumb-item active"
-                                    aria-current="page"
-                                >
-                                    Group Add-Ons
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
+                   
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <form @submit.prevent="saveForm">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="w-75 m-auto">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="mb-20">
@@ -68,7 +46,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row type">
+                                            <div class="row type  w-100 m-auto">
                                                 <label
                                                     >Thể loại :
                                                     {{ nameCate }}</label
@@ -82,14 +60,15 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <button
+                                <button
                             type="submit"
                             class="button-submit btn btn-info btn-block"
                         >
-                            Thêm sản phẩm
+                           Sửa
                         </button>
+                            </div>
+                        </div>
+                        
                     </form>
                 </div>
             </div>
@@ -157,10 +136,9 @@ export default {
                     name:this.type,
                     product_category_id:this.idCateSelected
                 }
-            console.log(newType);
-            
              axios.patch('/api/v1/type/'+id,newType)
              .then(response =>{
+                  this.$router.push('/type')     
                   this.$notify({
                                     group: 'success',
                                     title: 'Thành công',

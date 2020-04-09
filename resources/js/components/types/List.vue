@@ -16,7 +16,6 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Hãng sản xuất</th>
-                                                        <th>Thể loại</th>
                                                          <th>Ngày tạo</th>
                                                         <th>Hành động</th>
                                                        
@@ -31,13 +30,6 @@
                                                                 <div class="d-inline-block">
                                                                     <h6></h6>
                                                                     <p class="text-muted mb-0">{{ item.name}}</p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                             <div class="card">
-                                                                <div class="card-body">
-                                                                    <span class="badge badge-pill badge-primary mb-1">{{    item.product_category_id    }}</span>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -96,8 +88,6 @@ export default {
         .catch(function (error) {
             console.log('Error :',error);
         });
-        
-
     },
    methods:{
        handleDelete(id,index){
@@ -121,7 +111,7 @@ export default {
        },
        clickEdit(id,index){
              this.$router.push('/type/edit/'+id)
-       }
+       },
    }
    
 }

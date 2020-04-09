@@ -1,19 +1,28 @@
 <template>
     <div>
         <div class="wrapper">
-            <HeaderComponent @handleSearch="handleSearch" @handleClose="handleClose"></HeaderComponent>
-                <div class="page-wrap">
-                    <NavigationComponent></NavigationComponent>
-                    <template v-if="isShowListSearch">
-                        <list-search />
-                    </template>
-                    <template v-if="isShowView">
-                        <router-view></router-view>
-                    </template>
-                    <FooterComponent></FooterComponent>
+            <!-- <template v-if="isLogin">
+                <div>
+                    <login /> 
                 </div>
+            </template> -->
+            <template>
+                <HeaderComponent @handleSearch="handleSearch" @handleClose="handleClose"></HeaderComponent>
+                <div class="page-wrap">
+                    <div>
+                            <NavigationComponent></NavigationComponent>
+                            <template v-if="isShowListSearch">
+                                <list-search />
+                            </template>
+                            <template v-if="isShowView">
+                                <router-view></router-view>
+                            </template>
+                            <FooterComponent></FooterComponent>
+                    </div>
+                </div>
+            </template>
             </div>
-            <notifications group="success" />
+        <notifications group="success" />
         <vue-confirm-dialog></vue-confirm-dialog>
     </div>
 </template>
@@ -24,6 +33,9 @@ import HeaderComponent from '../core/HeaderComponent'
 import NavigationComponent from '../core/NavigationComponent'
 import DashboardComponent from '../home/DashboardComponent'
 import ListSearch from "../products/ListSearch";
+import Login from "../login/LoginComp";
+import { mapState } from 'vuex'
+
 export default {
     name:'',
     data() {
@@ -31,12 +43,16 @@ export default {
           isShowListSearch:false,
             isShowView:true,
             listSearch:[],
-
         }
     },
     components:{
         ListSearch,
-        FooterComponent,HeaderComponent,NavigationComponent,DashboardComponent
+        FooterComponent,HeaderComponent,NavigationComponent,DashboardComponent,Login
+    },
+    computed:{
+         ...mapState([
+             'isLogin'
+         ]),
     },
     methods:{
         handleSearch(data){

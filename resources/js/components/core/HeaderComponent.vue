@@ -20,9 +20,7 @@
                     <div class="dropdown">
                         <a @click="handleClick" class="dropdown-toggle" role="button"><img style="width:40px;height:40px;right:50px"  class="avatar" src="/img/admin/user.jpg" alt=""></a>
                         <div v-if="isDisplayDropdown" style="display:block" class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="profile.html"><i class="ik ik-user dropdown-icon"></i> Profile</a>
-                            <a class="dropdown-item" href="#"><i class="ik ik-settings dropdown-icon"></i> Settings</a>
-                            <a class="dropdown-item" href="login.html"><i class="ik ik-power dropdown-icon"></i> Logout</a>
+                            <a class="dropdown-item" href="/admin"><i class="ik ik-power dropdown-icon"></i>Đăng xuất</a>
                         </div>
                     </div>
                 </div>

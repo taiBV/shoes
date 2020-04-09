@@ -7,10 +7,21 @@
                                             <div class="page-header-title">
                                                     <i class="ik ik-edit bg-blue"></i>
                                                     <div class="d-inline">
-                                                            <h5>Thêm Mới</h5>
+                                                            <h5>Sửa</h5>
                                                             <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                                                     </div>
                                             </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                            <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                            <li class="breadcrumb-item">
+                                                                    <a href="../index.html"><i class="ik ik-home"></i></a>
+                                                            </li>
+                                                            <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                                                            <li class="breadcrumb-item active" aria-current="page">Group Add-Ons</li>
+                                                    </ol>
+                                            </nav>
                                     </div>
                             </div>
                     </div>
@@ -23,7 +34,7 @@
                                                            <div class="card-body">
                                                                 <div class="mb-20">
                                                                         <div class="row">
-                                                                                
+                                                                                <label class="col-sm-4 col-lg-2 col-form-label">Hãng sản xuất</label>
                                                                                 <div class="col-sm-8 col-lg-10">
                                                                                         <div class="input-group">
                                                                                                 <span class="input-group-prepend">
@@ -49,10 +60,10 @@
                                                                 </div>
                                                            </div>
                                                         </div>
-                                                         <button type="submit" class="button-submit btn btn-info btn-block"> Thêm</button>
+                                                          <button type="submit" class="button-submit btn btn-info btn-block"> Sửa</button>
                                                 </div>
                                         </div>    
-                                        
+                                       
                                  </form>
                         </div>
                       
@@ -70,15 +81,25 @@ label{
 </style>
 <script>
 export default {
-    name:'',
+    name:'edit-u',
     data() {
         return {
+         idUser:this.$route.params.id,
             name:'',
             email:'',
             password:''
         }
     },
     created(){
+            axios.get('/api/v1/user/'+parseInt(this.idUser))
+            .then(res=>{
+                    this.name=res.data.name;
+                     this.email=res.data.email;
+                      this.password=res.data.password;
+            })
+            .catch(e=>{
+                    console.log(e);
+            })
     },
     computed: {
     },
@@ -90,14 +111,13 @@ export default {
               password:this.password,
           }
         
-          axios.post('/api/v1/user',data)
+          axios.patch('/api/v1/user/' +parseInt(this.idUser),data)
           .then(response=> {
                    this.$router.push('/user')
               this.$notify({
                             group: 'success',
                             title: 'Thành công',
                             type: 'success',
-                            text: 'Người dùng đã được thêm mới',
                             speed: 1000,
                                 duration: 500,
                     })   

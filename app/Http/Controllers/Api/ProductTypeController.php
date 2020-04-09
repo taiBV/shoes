@@ -78,7 +78,6 @@ class ProductTypeController extends Controller
         $type = ProductType::findOrFail($id);
         $type->name = $request->name;
         $type->product_category_id = $request->product_category_id;
-
         $type->save();
         return $type;
     }

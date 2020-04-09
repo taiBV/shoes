@@ -36,4 +36,5 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function
     Route::resource('customer', 'CustomerController');
     Route::resource('user', 'UserController');
     Route::resource('tim-kiem', 'SearchController');
+    Route::resource('login', 'LoginController');
 });

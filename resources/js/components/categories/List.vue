@@ -145,7 +145,8 @@ export default {
                         text: 'Thể loại đã được thêm mới',
                         speed: 1000,
                         duration: 500,
-                    })
+                    });
+                    this.listCategory.push(response.data);
                     this.nameCate='';
                     this.isShowFormAdd=false;
             })
@@ -172,7 +173,9 @@ export default {
                                     type: 'success',
                                     speed: 1000,
                                         duration: 500,
-                                })
+                                });
+                              
+                                
              })
              .catch( error=> {
                     this.$notify({

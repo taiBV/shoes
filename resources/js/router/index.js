@@ -4,7 +4,6 @@ import ListProduct from '../components/products/List.vue'
 import CreateProduct from '../components/products/Create.vue'
 import EditProduct from '../components/products/Edit.vue'
 import ListCategory from '../components/categories/List.vue'
-import CreateCategory from '../components/categories/Create.vue'
 
 import ListType from '../components/types/List.vue'
 import CreateType from '../components/types/Create.vue'
@@ -15,6 +14,7 @@ import Detail from '../components/bills/Detail.vue'
 
 import ListUser from '../components/users/ListUser'
 import Create from '../components/users/Create'
+import EditUser from '../components/users/Edit'
 const routes = [
     {
         path: '/',
@@ -28,7 +28,6 @@ const routes = [
 
             //category
             { path: '/category', component: ListCategory },
-            { path: '/category/create', component: CreateCategory },
            // type
            { path: '/type', component: ListType },
            { path: '/type/create', component: CreateType },
@@ -40,6 +39,7 @@ const routes = [
 
            { path: '/user', component: ListUser },
            { path: '/user/create', component: Create },
+           { path: '/user/edit/:id?', component: EditUser },
         ]
     },
 

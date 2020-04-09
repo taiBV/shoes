@@ -5,24 +5,20 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
-
 class AdminController extends Controller
 {
     function login(){
-       return redirect('/dang-nhap');
+       return view('admin.login');
     }
-    function getLogin(Request $req){
-        $data=[
-            'email'=>$req->email,
-            'password'=>$req->psw
-        ];
-        if(Auth::attempt($data)){
-            return  redirect()->back();
+    function postLogin(Request $req){
+        $email=$req->email;
+         $psw=$req->psw;
+         $getU=User::where(['email'=>$email,'password'=>$psw])->first();
+        if($getU==null){
+           return redirect()->back();
         }
-        else
-        {
-            return redirect('/');
-           
+        else{
+            return redirect('/adminapi');
         }
     }
 }

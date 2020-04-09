@@ -115,7 +115,7 @@ export default {
              }
        },
        clickEdit(id,index){
-             this.$router.push('/type/edit/'+id)
+            this.$router.push('/user/edit/'+id)
        }
    }
    

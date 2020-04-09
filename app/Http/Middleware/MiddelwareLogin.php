@@ -20,7 +20,7 @@ class MiddelwareLogin
         {
             return $next($request);
         }else{
-            return redirect('/dang-nhap');
+            return redirect()->back();
         }
     }
 }

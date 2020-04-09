@@ -1,7 +1,7 @@
 <template>
   <div class="app-sidebar colored">
                     <div class="sidebar-header">
-                        <a class="header-brand" href="index.html">
+                        <a class="header-brand" href="javascript:void(0)">
                             <div class="logo-img">
                                <img src="/img/admin/brand-white.svg" class="header-brand-img" alt="lavalite">
                             </div>
@@ -58,9 +58,6 @@
                                     <div class="submenu-content">
                                        <router-link tag="a" to="/user/create" class="menu-item">Thêm mới</router-link>
                                     </div>
-                                </div>
-                                <div class="nav-item">
-                                    <a href="pages/ui/icons.html"><i class="ik ik-command"></i><span>Icons</span></a>
                                 </div>
                                 <div class="nav-lavel">Other</div>
                             </nav>

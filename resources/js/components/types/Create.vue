@@ -12,24 +12,14 @@
                                                     </div>
                                             </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                            <nav class="breadcrumb-container" aria-label="breadcrumb">
-                                                    <ol class="breadcrumb">
-                                                            <li class="breadcrumb-item">
-                                                                    <a href="../index.html"><i class="ik ik-home"></i></a>
-                                                            </li>
-                                                            <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                                                            <li class="breadcrumb-item active" aria-current="page">Group Add-Ons</li>
-                                                    </ol>
-                                            </nav>
-                                    </div>
+                                   
                             </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                                 <form @submit.prevent="saveForm">
                                         <div class="row">
-                                                <div class="col-md-8">
+                                                <div class="w-75 m-auto">
                                                         <div class="card">
                                                            <div class="card-body">
                                                                 <div class="mb-20">
@@ -44,7 +34,7 @@
                                                                                         </div>
                                                                                 </div>
                                                                         </div>
-                                                                         <div class="row type">
+                                                                         <div class="row type w-100 m-auto">
                                                                                 <label>Thể loại</label>
                                                                                 <select v-model="idCateSelected" class="select form-control select2">
                                                                                             <option  :value="item.id" v-for="item in listCate" :key="item.id">{{ item.name }}</option>
@@ -53,9 +43,10 @@
                                                                 </div>
                                                            </div>
                                                         </div>
+                                                         <button type="submit" class="button-submit btn btn-info btn-block"> Thêm hãng</button>
                                                 </div>
                                         </div>    
-                                         <button type="submit" class="button-submit btn btn-info btn-block"> Thêm sản phẩm</button>
+                                        
                                  </form>
                         </div>
                       
@@ -102,6 +93,7 @@ export default {
         
           axios.post('/api/v1/type',data)
           .then(response=> {
+              this.$router.push('/type')     
               this.$notify({
                             group: 'success',
                             title: 'Thành công',
@@ -111,9 +103,16 @@ export default {
                                 duration: 500,
                     })   
           })
-          .catch(function (error) {
+          .catch(error=>{
+              this.$notify({
+                    group: 'success',
+                    title: 'Có lỗi xảy ra !',
+                    type: 'warn',
+                    text: 'Vui lòng kiểm tra dữ liệu hoặc nhập lại',
+                    speed: 500,
+                    duration: 10000,
+              })
               console.log('ERROR',error);
-              
           })
        }
             

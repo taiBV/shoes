@@ -12,16 +12,11 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/admin2', 'AdminController@login');
-Route::get('/dang-nhap', function(){
-    return view('admin.login');
-});
-Route::get('/admin', function(){
+Route::get('/adminapi', function(){
     return view('admin.index');
 });
-Route::post('/dang-nhap', 'AdminController@getLogin');
-
-Auth::routes();
+ Route::get('/admin','AdminController@login');
+ Route::post('/postLogin','AdminController@postLogin');
 Route::get('sendmail','MailController@basic_email');
 Route::get('contact', function () {
     return view('layouts.contact.index');
@@ -46,9 +41,6 @@ Route::get('gio-hang', function () {
 })->name('checkout');
 Route::post('xac-nhan', ['uses' => 'CheckoutController@confirm', 'as' => 'confirm']);
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('companies', 'CompaniesController@index')->name('companies.index');
-});
 //comment
 Route::get('/list-comment/{id}','CommentController@getComment');
 Route::post('/comment','CommentController@postComment');

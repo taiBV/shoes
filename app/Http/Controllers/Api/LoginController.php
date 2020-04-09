@@ -5,7 +5,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user= User::all();
-        return $user;
+        //
     }
 
     /**
@@ -34,14 +33,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        $u = new User;
-        $u->name=$request->name;
-        $u->email=$request->email;
-        $u->password=$request->password;
-        $u->save();
- 
+       $user=null;
+        $email=$req->email;
+        $password=$req->pw;
+        $getU=User::where(['email'=>$email,'password'=>$password])->first();
+        if($getU ==null){
+          return 0;
+        }
+        return $getU;
     }
 
     /**
@@ -52,7 +53,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::findOrFail($id);
+     
     }
 
     /**
@@ -75,13 +76,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=User::findOrFail($id);
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=$request->password;
-        $user->save();
-        return $user;
-      
+        //
     }
 
     /**
@@ -92,8 +87,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $u = User::findOrFail($id);
-        $u->delete();
-        return '';
+        //
     }
 }
