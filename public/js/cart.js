@@ -151,5 +151,25 @@ $(document).ready(function () {
                 console.log('Error:', data);
             }
         });
-    })
+    });
+
+    // validtae
+    $(".confirm").click(function(e){
+        e.preventDefault();
+       var ipName=$("#name").val();
+       var ipEmail=$("#email").val();
+       var ipAddress=$("#address").val();
+       var ipPhone=$("#phone").val();
+      if(ipName !='' || ipPhone !='' || ipEmail !='' ||  ipAddress !=''){
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(ipEmail.match(mailformat)){
+               $("#formBill").submit();
+        }
+      }
+      else
+      {
+       Swal.fire('Thông tin không hợp lệ !')
+      }
+     
+    });
 });

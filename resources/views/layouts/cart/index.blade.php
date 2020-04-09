@@ -77,17 +77,6 @@
                                     </tbody>
 
                                 </table>
-                                <div class="w-25 code-sale form-group">
-                                    <label for="">Mã giảm giá</label>
-                                    <div class="input-group mb-3">
-                                        <input name="code-sale" id="code-sale" placeholder="Nhập mã giảm giá nếu có..."
-                                               type="text" class="form-control">
-                                        <p style="color: red" id="msg-code"></p>
-                                        <div class="input-group-append btn-getCode">
-                                            <button class="btn btn-outline-secondary btnReceive " type="button">Nhận</button>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="shopping-button">
                                     <div class="continue-shopping">
                                         <button type="submit" data-toggle="modal" data-target="#myModal">Tiến hành đặt
@@ -95,7 +84,7 @@
                                         </button>
                                     </div>
                                     <div class="shopping-cart-left">
-                                        <button type="button">Tiếp tục mua hàng</button>
+                                       <a href="/products"> <button type="button">Tiếp tục mua hàng</button></a>
                                         <button id="deleteall" type="button">Xóa tất cả</button>
                                     </div>
                                 </div>
@@ -117,29 +106,29 @@
                             <div style="width:fit-content;background-color: #f2f2f2;" class="row-modal">
                                 <div class="col-75">
                                     <div class="container">
-                                        <form method="POST" action="{{ route('confirm')}}">
+                                        <form method="POST" id="formBill" action="{{ route('confirm')}}">
                                             {{csrf_field()}}
                                             <div class="row-modal">
                                                 <div class="col-50">
                                                     <h3>Thông tin khách hàng</h3>
-                                                    <label for="fname"><i class="fa fa-user"></i> Họ Tên</label>
+                                                    <label for="fname"><i class="fa fa-user"></i> Họ Tên  <span style="color:red">*</span> </label>
                                                     <input type="text" id="name" name="name" placeholder="John M. Doe">
                                                 <!-- @error('name')
                                                     <p style="color:red">{{ $message }}</p>
 														@enderror -->
-                                                    <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                                    <label for="email"><i class="fa fa-envelope"></i> Email  <span style="color:red">*</span> </label>
                                                     <input type="text" id="email" name="email"
                                                            placeholder="john@example.com">
                                                 <!-- @error('email')
                                                     <p style="color:red">{{ $message }}</p>
 														@enderror -->
                                                     <label for="adr"><i class="fa fa-address-card-o"></i> Địa
-                                                        chỉ</label>
+                                                        chỉ  <span style="color:red">*</span> </label>
                                                     <input type="text" id="address" name="address"
                                                            placeholder="542 W. 15th Street">
 
                                                     <label for="phone"><i class="fa fa-phone" aria-hidden="true"></i>
-                                                        Điện thoại</label>
+                                                        Điện thoại  <span style="color:red">*</span> </label>
                                                     <input type="text" id="phone" name="phone" placeholder="New York">
 
                                                     <label for="note"><i class="fa fa-sticky-note-o"
@@ -162,8 +151,8 @@
                                                 </div>
 
                                             </div>
-                                            <label style="color:red">
-                                                * Lưu ý : Thanh toán trực tiếp khi nhận hàng
+                                            <label style="color:red;margin-top:10px">
+                                                * Lưu ý : Trường có dấu * là bắt buộc
                                             </label>
                                             <br>
                                             <div class="row" style="display: flex">
@@ -214,7 +203,9 @@
     /*    display: none;*/
     /*}*/
 </style>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/sweetalert2@8.js"></script>
 <script src="/js/cart.js"></script>
+
