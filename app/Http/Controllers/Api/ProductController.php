@@ -72,6 +72,7 @@ class ProductController extends Controller
                 $product->sku=json_decode(json_encode($request->product["sku"]), true);
             }
             $product->name=json_decode(json_encode($request->product["name"]), true);
+            $product->slug=json_decode(json_encode($request->product["slug"]), true);
             $product->price=json_decode(json_encode($request->product["price"]), true);
             $product->price_sale=json_decode(json_encode($request->product["sale"]), true);
             $product->excerpt=json_decode(json_encode($request->product["excerpt"]), true);

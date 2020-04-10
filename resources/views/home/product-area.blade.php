@@ -13,7 +13,7 @@
                                 <li><a href="#" id="all-type">Tất cả</a></li>
                                 @foreach($type as $item)
                                     <li data-id="{{ $item->id }}" class="product-type" role="presentation">
-                                        <a href="#">{{ $item->name  }}</a>
+                                        <a href="javascrip:void()">{{ $item->name  }}</a>
                                     </li>
                                 @endforeach
                                 <li><img src="img/banner/banner-5.jpg" alt=""></li>
@@ -50,8 +50,7 @@
                                             </div>
                                             <div class="actions">
                                                 <a href="/san-pham/{{$item->id}}">
-                                                    <button type="submit" class="cart-btn" title="Add to cart">add to
-                                                        cart
+                                                    <button type="submit" class="cart-btn" title="Add to cart">Thêm vào giỏ
                                                     </button>
                                                 </a>
                                                 <ul class="add-to-link">

@@ -3559,6 +3559,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
   data: function data() {
@@ -3567,6 +3575,7 @@ __webpack_require__.r(__webpack_exports__);
       product: {
         type: '',
         sku: '',
+        slug: '',
         name: '',
         price: '',
         sale: '',
@@ -3589,7 +3598,34 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getCkeditor();
   },
-  computed: {},
+  computed: {
+    getSlug: function getSlug() {
+      var name_product = this.product.name;
+      var slug = name_product.toLowerCase(); // 
+
+      slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+      slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+      slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+      slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+      slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+      slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+      slug = slug.replace(/đ/gi, 'd'); //Xóa các ký tự đặt biệt
+
+      slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, ''); //Đổi khoảng trắng thành ký tự gạch ngang
+
+      slug = slug.replace(/ /gi, " - "); //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+      //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+
+      slug = slug.replace(/\-\-\-\-\-/gi, '-');
+      slug = slug.replace(/\-\-\-\-/gi, '-');
+      slug = slug.replace(/\-\-\-/gi, '-');
+      slug = slug.replace(/\-\-/gi, '-'); //Xóa các ký tự gạch ngang ở đầu và cuối
+
+      slug = '@' + slug + '@';
+      slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+      return this.product.slug = slug;
+    }
+  },
   methods: {
     onImageChange: function onImageChange(e) {
       var files = e.target.files || e.dataTransfer.files;
@@ -3664,6 +3700,14 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4019,6 +4063,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     getCkeditor: function getCkeditor() {
       CKEDITOR.replace('body-create');
+    }
+  },
+  computed: {
+    getSlug: function getSlug() {
+      var name_product = this.product.name;
+      var slug = name_product.toLowerCase(); // 
+
+      slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+      slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+      slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+      slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+      slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+      slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+      slug = slug.replace(/đ/gi, 'd'); //Xóa các ký tự đặt biệt
+
+      slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, ''); //Đổi khoảng trắng thành ký tự gạch ngang
+
+      slug = slug.replace(/ /gi, " - "); //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+      //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+
+      slug = slug.replace(/\-\-\-\-\-/gi, '-');
+      slug = slug.replace(/\-\-\-\-/gi, '-');
+      slug = slug.replace(/\-\-\-/gi, '-');
+      slug = slug.replace(/\-\-/gi, '-'); //Xóa các ký tự gạch ngang ở đầu và cuối
+
+      slug = '@' + slug + '@';
+      slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+      return this.product.slug = slug;
     }
   }
 });
@@ -44733,16 +44805,20 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "sidebar-header" }, [
-      _c("a", { staticClass: "header-brand", attrs: { href: "index.html" } }, [
-        _c("div", { staticClass: "logo-img" }, [
-          _c("img", {
-            staticClass: "header-brand-img",
-            attrs: { src: "/img/admin/brand-white.svg", alt: "lavalite" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "text" }, [_vm._v("The James")])
-      ]),
+      _c(
+        "a",
+        { staticClass: "header-brand", attrs: { href: "javascript:void(0)" } },
+        [
+          _c("div", { staticClass: "logo-img" }, [
+            _c("img", {
+              staticClass: "header-brand-img",
+              attrs: { src: "/img/admin/brand-white.svg", alt: "lavalite" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text" }, [_vm._v("The James")])
+        ]
+      ),
       _vm._v(" "),
       _c("button", { staticClass: "nav-toggle", attrs: { type: "button" } }, [
         _c("i", {
@@ -45262,6 +45338,40 @@ var render = function() {
                                       "name",
                                       $event.target.value
                                     )
+                                  }
+                                }
+                              })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c(
+                            "label",
+                            { staticClass: "col-sm-4 col-lg-2 col-form-label" },
+                            [_vm._v("Slug")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-8 col-lg-10" }, [
+                            _c("div", { staticClass: "input-group" }, [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.getSlug,
+                                    expression: "getSlug"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { disabled: "", type: "text" },
+                                domProps: { value: _vm.getSlug },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.getSlug = $event.target.value
                                   }
                                 }
                               })
@@ -45837,7 +45947,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "input-group-append" }, [
-      _c("label", { staticClass: "input-group-text" }, [_vm._v(".20")])
+      _c("label", { staticClass: "input-group-text" }, [_vm._v("đồng")])
     ])
   },
   function() {
@@ -45933,6 +46043,42 @@ var render = function() {
                                         "name",
                                         $event.target.value
                                       )
+                                    }
+                                  }
+                                })
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-4 col-lg-2 col-form-label"
+                              },
+                              [_vm._v("Slug")]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-8 col-lg-10" }, [
+                              _c("div", { staticClass: "input-group" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.getSlug,
+                                      expression: "getSlug"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: { disabled: "", type: "text" },
+                                  domProps: { value: _vm.getSlug },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.getSlug = $event.target.value
                                     }
                                   }
                                 })
