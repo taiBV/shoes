@@ -13,11 +13,11 @@
                      <div class="col-md-12">
                     <div class="single-product">
                         <div class="level-pro-new">
-                            <span>new</span>
+                            <span>Mới</span>
                         </div>
-                        <div class="product-img">
+                        <div class="product-img" style="width:100%">
                             <a href="/san-pham/{{$item->id}}">
-                                <img src="/img/{{$item->product_image}}" alt="" class="primary-img">
+                                <img style="height:250px" src="/img/{{$item->product_image}}" alt="" class="primary-img">
                             </a>
                         </div>
                         <div class="product-name">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="actions">
                             <a href="/san-pham/{{$item->id}}">
-                                <button type="submit" class="cart-btn" title="Add to cart">add to cart</button>
+                                <button type="submit" class="cart-btn" title="Add to cart">Thêm vào giỏ</button>
                             </a>
                             <ul class="add-to-link">
                                 <li><a class="modal-view" data-target="#productModal" data-toggle="modal" href="#"> <i class="fa fa-search"></i></a></li>

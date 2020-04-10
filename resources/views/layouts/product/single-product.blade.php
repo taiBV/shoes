@@ -121,6 +121,7 @@
                                     </div>
                                 </div>
                             </div>
+                           
                         </div>
                         <div class="cart-item">
                             <div class="single-cart">
@@ -131,6 +132,9 @@
                                 <button data-id="{{ $product->id }}" id="cartadd" class="cart-btn">Thêm vào giỏ</button>
                             </div>
                         </div>
+                        <p>
+                            Tóm tắt : {{ $item-> excerpt}}
+                            </p>
                     </div>
                 </div>
             </div>
