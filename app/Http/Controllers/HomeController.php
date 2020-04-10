@@ -31,7 +31,7 @@ class HomeController extends Controller
         $category=ProductCategory::all();
         $type=ProductType::where('product_category_id',1)->get();
         // product byt cate sport
-        $productsBySprort=Product::whereIn("product_type_id",$type->pluck('id'))->get();
+        $productsBySprort=Product::whereIn("product_type_id",$type->pluck('id'))->take(6)->get();
         $products=DB::table('products')->orderBy('created_at','DESC')->take(8)->get();
         $productBanner=DB::table('products')->orderBy('created_at','ASC')->take(2)->get();
 
