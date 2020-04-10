@@ -132,8 +132,8 @@
                                 <button data-id="{{ $product->id }}" id="cartadd" class="cart-btn">Thêm vào giỏ</button>
                             </div>
                         </div>
-                        <p>
-                            Tóm tắt : {{ $item-> excerpt}}
+                        <p style="font-weight:600">
+                            Tóm tắt : {{ $product-> excerpt}}
                             </p>
                     </div>
                 </div>
