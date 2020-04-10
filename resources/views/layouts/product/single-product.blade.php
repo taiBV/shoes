@@ -133,7 +133,7 @@
                             </div>
                         </div>
                         <p style="font-weight:600">
-                            Tóm tắt : {{ $product-> excerpt}}
+                            Tóm tắt : <span style="font-weight:300">{{ $product-> excerpt}}</span>
                             </p>
                     </div>
                 </div>
