@@ -2,7 +2,7 @@
     <div class="main-content">
                     <div class="container-fluid">
                         <div class="page-header">
-                            <p style="color:red">Note : Hình ảnh của sản phẩm sau khi upload một khoảng thời gian
+                            <p style="color:red">Note :Lỗi hiển thị hình ảnh do sản phẩm sau khi upload một khoảng thời gian
                               bị  heroku tự động xóa để giảm bớt dung lượng ! </p>
                         </div>
                         <div class="row">

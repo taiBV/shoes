@@ -4192,6 +4192,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: '',
@@ -46756,7 +46757,7 @@ var render = function() {
     { staticClass: "main-content" },
     [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "page-header" }),
+        _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
@@ -46824,7 +46825,7 @@ var render = function() {
               _c("div", { staticClass: "card-block" }, [
                 _c("div", { staticClass: "table-responsive" }, [
                   _c("table", { staticClass: "table table-hover mb-0" }, [
-                    _vm._m(0),
+                    _vm._m(1),
                     _vm._v(" "),
                     _vm.listProductSearch.length != 0
                       ? _c(
@@ -46928,6 +46929,18 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-header" }, [
+      _c("p", { staticStyle: { color: "red" } }, [
+        _vm._v(
+          "Note : Hình ảnh của sản phẩm sau khi upload một khoảng thời gian\n                          bị  heroku tự động xóa để giảm bớt dung lượng ! "
+        )
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
