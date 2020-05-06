@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b0d87a8-01a0-4a90-95c3-ac7747c9a748" name="Default Changelist" comment="" />
+    <list default="true" id="7b0d87a8-01a0-4a90-95c3-ac7747c9a748" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shoes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shoes.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +25,9 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -122,9 +129,11 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ZOkh4jzq5O3azFqBkbNhhugPkD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -133,8 +142,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -177,6 +187,9 @@
       <workItem from="1585879897486" duration="683000" />
       <workItem from="1585881577763" duration="5381000" />
       <workItem from="1586008486511" duration="7957000" />
+      <workItem from="1587032851269" duration="110000" />
+      <workItem from="1587033597608" duration="11558000" />
+      <workItem from="1587170174655" duration="181000" />
     </task>
     <servers />
   </component>
@@ -192,10 +205,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1600.860@0.0.1366.728" timestamp="1585474897294" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1585881542132">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1587170355760">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1600.860@0.0.1366.728" timestamp="1585881542132" />
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1600.860@0.0.1366.728" timestamp="1587170355760" />
     <state x="457" y="162" key="NewPhpClassDialog" timestamp="1585148621793">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -204,11 +217,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="283" key="NewPhpFileDialog/0.0.1366.728/1366.0.1600.860@0.0.1366.728" timestamp="1585360530558" />
-    <state x="359" y="187" width="647" height="350" key="com.intellij.ide.util.TipDialog" timestamp="1586008535601">
+    <state x="359" y="187" width="647" height="350" key="com.intellij.ide.util.TipDialog" timestamp="1587170184629">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="359" y="187" width="647" height="350" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1600.860@0.0.1366.728" timestamp="1586008535601" />
-    <state x="359" y="197" key="com.intellij.ide.util.TipDialog/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1585658427659" />
+    <state x="359" y="187" width="647" height="350" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1600.860@0.0.1366.728" timestamp="1587170184629" />
+    <state x="359" y="197" key="com.intellij.ide.util.TipDialog/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1587033602067" />
     <state x="0" y="0" width="758" height="728" key="find.popup" timestamp="1584844539692">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
